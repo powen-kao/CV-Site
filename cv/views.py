@@ -4,28 +4,31 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import loader
 from django.views import generic
-from .models import Experience
+from .models import Experience, Education, Skill
 
 
-class IndexView(generic.ListView):
-    template_name = 'cv/index.html'
-    context_object_name = 'latest_question_list'
+# class IndexView(generic.ListView):
+#     template_name = 'cv/index.html'
+#     context_object_name = 'experience_list'
+#
+#     def get_queryset(self):
+#         return Experience.objects.order_by('-end_date')[:5]
 
-    def get_queryset(self):
-        return Experience.objects.order_by('-start_date')[:5]
-
-# def index(request):
-#     latest_question_list = Experience.objects.order_by('-start_date')[:5]
-#     template = loader.get_template('cv/index.html')
-#     context = {
-#         'latest_question_list': latest_question_list,
-#     }
-#     return HttpResponse(template.render(context, request))
+def index(request):
+    experience_list = Experience.objects.order_by('-end_date')
+    education_list = Education.objects.order_by('-end_date')
+    skill_list = Skill.objects.all().order_by('category')
+    template = loader.get_template('cv/index.html')
+    context = {
+        'experience_list': experience_list,
+        'education_list': education_list,
+        'skill_list': skill_list,
+    }
+    return HttpResponse(template.render(context, request))
 
     # latest_exp_list = Experience.objects.order_by('-start_date')[:5]
     # output = ', '.join([q.title for q in latest_exp_list])
     # return HttpResponse(output)
-
 
     # return HttpResponse("Hello, world. You're at the polls index.")
 
