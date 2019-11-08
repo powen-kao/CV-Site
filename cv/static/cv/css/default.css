@@ -76,7 +76,7 @@ audio:not([controls]) {
 
 [hidden] { display: none; }
 
-code, kbd, pre, samp {
+code, kbd, pre, samp {settings
    font-family: monospace, serif;
    font-size: 1em;
 }
@@ -151,6 +151,10 @@ body {
 
    -webkit-font-smoothing: antialiased; /* Fix for webkit rendering */
 	-webkit-text-size-adjust: 100%;
+}
+
+pre{
+   font-family: 'opensans-regular', sans-serif;
 }
 
 /*  2. Typography
