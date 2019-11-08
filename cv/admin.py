@@ -1,5 +1,6 @@
 from django.contrib import admin
-from .models import Experience, Education, Skill
+from .models import Experience, Education, Skill, SkillCategory
+
 
 # Register your models here.
 # admin.site.register(Experience)
@@ -21,3 +22,8 @@ class ExperienceAdmin(admin.ModelAdmin):
 @admin.register(Skill)
 class SkillAdmin(admin.ModelAdmin):
     list_display = ('name', 'level')
+
+
+@admin.register(SkillCategory)
+class SkillCategoryAdmin(admin.ModelAdmin):
+    list_display = ('name', 'color')

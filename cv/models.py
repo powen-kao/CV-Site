@@ -20,4 +20,10 @@ class Education(models.Model):
 
 class Skill(models.Model):
     name = models.CharField(max_length=100)
-    level = models.IntegerField('level of skill range from 0 to 10')
+    category = models.ForeignKey('SkillCategory', on_delete=models.DO_NOTHING, null=True)
+    level = models.IntegerField('level of skill range from 0 to 10', blank=True, null=True)
+
+
+class SkillCategory(models.Model):
+    name = models.CharField(max_length=100)
+    color = models.CharField(max_length=9)
