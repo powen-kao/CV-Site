@@ -8,7 +8,7 @@
    <!--- Basic Page Needs
    ================================================== -->
    <meta charset="utf-8">
-	<title>Powen Kao - Embedded Engineer</title>
+	<title>Po-Wen Kao - Embedded Engineer</title>
 	<meta name="description" content="Embedded Engineer, Embedded System, C++, C, Python, Java, Android, iOS, AR, Unity">
 	<meta name="author" content="">
 
@@ -86,12 +86,11 @@
 
             <h2>About Me</h2>
 
-            <p>Having strong motivation in exploring new technology and gaining hand on experience.
-                Learning C and C++ as my first programming language to work with development board ranging from Raspberry Pi to TI CC2541 and Freescale.
-                To bring the power of embedded system to daily life, I also dive into iOS, android development and develop application that works wirelessly through Wifi or BLE with development boards.
-                Docker containers are used to setup back-end service (Ruby on Rail, nginx...) for these IoT application.
-What's more, robotic application is also my top interest. I have done two bachelor projects regarding indoor navigation and mobile robotic arm. Both projects are built on ROS and apply Monte Carlo Localization and Inverse Kinematic respectively.
-More recently, I find game development interesting and engage myself in Unity3D(C#) and pygame(Python) framework to build games. Basic Photoshop and Illustrator skills are acquired while making game asset.
+            <p> Enjoy exploring latest technology and trying out new potentials. Having strong experienced in C and C++, I built up projects on robotic and IoT applications while I was in university in Taiwan.
+                At this point, I found myself deeply fascinated with beauty of embedded system and keep pursuing chance to dive deeper.
+                Germany then becomes my
+
+            Device range from LaunchPad from TI, freescale to raspberry pi
             </p>
 
             <div class="row">
@@ -100,12 +99,11 @@ More recently, I find game development interesting and engage myself in Unity3D(
 
                   <h2>Contact Details</h2>
                   <p class="address">
-						   <span>Powen Kao</span><br>
-						   <span>Freiburg,<br>
+						   <span>Po-Wen Kao</span><br>
+						   <span>Stuttgart,<br>
 						         Germany
                             </span><br>
-{#						   <span>(123)456-7890</span><br>#}
-                     <span>powen.kao.tw@gmail.com</span>
+                     <span>hp5588@gmail.com</span>
 					   </p>
 
                </div>
@@ -208,17 +206,19 @@ More recently, I find game development interesting and engage myself in Unity3D(
 
             <p>Familiar with hardware design and Skill range from low-level HDL to object oriented language such as C++ and Java.
             </p>
-
 				<div class="floating-items">
-				   <ul class="skills">
-                       {% for skill in skill_list %}
-                           <li class="column bgrid-sixths" style="background-color: {{ skill.category.color }}"><p>{{ skill.name }}</p></li>
-                       {% endfor %}
-					</ul>
+                {% regroup skill_list by display_category as category_list %}
+                {% for category, skill_list in category_list %}
+                        <h4>{{ category }}</h4>
+                        <ul class="skills">
 
-				</div><!-- end skill-bars -->
-
-			</div> <!-- main-col end -->
+                           {% for skill in skill_list|dictsortreversed:"level" %}
+                               <li class="column bgrid-sixths" style="background-color: {{ skill.category.color }}"><p>{{ skill.name }}</p></li>
+                           {% endfor %}
+                        </ul>
+                {% endfor %}
+                </div><!-- end skill-bars -->
+         </div> <!-- main-col end -->
 
       </div> <!-- End skills -->
 
