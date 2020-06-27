@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Experience, Education, Skill, SkillCategory
+from .models import Experience, Education, Skill, SkillCategory, Framework
 
 
 # Register your models here.
@@ -21,9 +21,14 @@ class ExperienceAdmin(admin.ModelAdmin):
 
 @admin.register(Skill)
 class SkillAdmin(admin.ModelAdmin):
-    list_display = ('name', 'level')
+    list_display = ('name', 'level', 'category')
 
 
 @admin.register(SkillCategory)
 class SkillCategoryAdmin(admin.ModelAdmin):
     list_display = ('name', 'color')
+
+
+@admin.register(Framework)
+class FrameworkAdmin(admin.ModelAdmin):
+    list_display = ('name', 'skill')

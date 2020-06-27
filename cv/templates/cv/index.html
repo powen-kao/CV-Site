@@ -58,7 +58,10 @@
       <div class="row banner ">
          <div class="banner-text">
             <h1 class="responsive-headline">I'm Po-Wen Kao</h1>
-             <h3> Explore the amaze </h3>
+             <div class="row">
+                <h3> Software / Hardware Engineer</h3>
+             </div>
+
             <hr />
             <ul class="social">
                <li><a href="https://www.linkedin.com/in/powen-kao/" target="_blank"><i class="fa fa-linkedin"></i></a></li>
@@ -86,11 +89,11 @@
 
             <h2>About Me</h2>
 
-            <p> Enjoy exploring latest technology and trying out new potentials. Having strong experienced in C and C++, I built up projects on robotic and IoT applications while I was in university in Taiwan.
-                At this point, I found myself deeply fascinated with beauty of embedded system and keep pursuing chance to dive deeper.
-                Germany then becomes my
-
-            Device range from LaunchPad from TI, freescale to raspberry pi
+            <p> Enjoy exploring latest technology and trying out new potentials. Having solid experience in programming, I built up various hobby projects in IoT applications and apps on iOS/Android.
+                It has always been a pleasure to program microcontroller in combine with other software that makes life easier.
+                At the point, I was fascinated with beauty of embedded system and further joined master program in Uni Freiburg in 2018.
+                Later in 2019, I found an internship opportunity in UI/UX Advanced Engineering department at Daimler that prototypes on latest UI concept.
+                Working closely with graphic designer, we bring the design to live. More recently, I am working on master thesis and getting ready for next big adventure.
             </p>
 
             <div class="row">
@@ -103,16 +106,16 @@
 						   <span>Stuttgart,<br>
 						         Germany
                             </span><br>
-                     <span>hp5588@gmail.com</span>
+                     <span>powen.kao.tw@gmail.com</span>
 					   </p>
 
                </div>
 
-               <div class="columns download">
-                  <p>
-                     <a href="#" class="button"><i class="fa fa-download"></i>Download Resume</a>
-                  </p>
-               </div>
+{#               <div class="columns download">#}
+{#                  <p>#}
+{#                     <a href="#" class="button"><i class="fa fa-download"></i>Download Resume</a>#}
+{#                  </p>#}
+{#               </div>#}
 
             </div> <!-- end row -->
 
@@ -143,10 +146,8 @@
 
                            <div class="twelve columns">
 
-                              <h3>{{ education.university }}</h3>
+                              <h3>{{ education.university }}<span class="info"> - {{education.country}}</span></h3>
                               <p class="info">{{ education.major }} <span>&bull;</span> <em class="date">{{ education.start_date|date:"M Y" }} - {{ education.end_date|date:"M Y" }}</em></p>
-
-{#                              <p>{{ education. }}</p>#}
 
                            </div>
 
@@ -173,14 +174,11 @@
              {% if experience_list %}
                  {% for experience in experience_list %}
                      <div class="row item">
-
                        <div class="twelve columns">
-
                           <h3>{{experience.title}} <span class="info"> - {{experience.department}}</span></h3>
                           <p class="info">{{ experience.position }} <span>&bull;</span>
                               <em class="date">{{ experience.start_date|date:"M Y" }} - {{ experience.end_date|date:"M Y" }}</em>
                           </p>
-
                           <pre>{{experience.description}}
                           </pre>
 
@@ -196,7 +194,7 @@
 
       <!-- Skills
       ----------------------------------------------- -->
-      <div class="row skill">
+      <div class="row skill" id="skills">
 
          <div class="three columns header-col">
             <h1><span>Skills</span></h1>
@@ -204,20 +202,35 @@
 
          <div class="nine columns main-col">
 
-            <p>Familiar with hardware design and Skill range from low-level HDL to object oriented language such as C++ and Java.
-            </p>
-				<div class="floating-items">
-                {% regroup skill_list by display_category as category_list %}
-                {% for category, skill_list in category_list %}
-                        <h4>{{ category }}</h4>
-                        <ul class="skills">
-
-                           {% for skill in skill_list|dictsortreversed:"level" %}
-                               <li class="column bgrid-sixths" style="background-color: {{ skill.category.color }}"><p>{{ skill.name }}</p></li>
+            <p>Familiar with programming language from low-level HDL to object oriented language such as C++, Python and Java.</p>
+            {% regroup skill_list by get_category as category_list %}
+            {% for category, skill_list in category_list %}
+                <h3><span> {{ category.name }}</span></h3>
+                <table class="skill-category" style="width: 100%; text-align: left">
+                    {% if not category.collapse %}
+                         {% for skill in skill_list|dictsortreversed:"level" %}
+                            <tr>
+                                <th style="width: 20%; text-align: right">
+                                    <h4>{{ skill.name }} </h4>
+                                </th>
+                                <th >
+                                    <a>{{ skill.framework_set.all|join:" | " }}</a>
+                                </th>
+                            </tr>
+                       {% endfor %}
+                    {% else %}
+                        <tr>
+                            {% for skill in skill_list|dictsortreversed:"level" %}
+                                    <th style="width: 20%; text-align: right">
+                                        <h4>{{ skill.name }} </h4>
+                                    </th>
                            {% endfor %}
-                        </ul>
-                {% endfor %}
-                </div><!-- end skill-bars -->
+                        </tr>
+                    {% endif %}
+                </table>
+            {% endfor %}
+
+
          </div> <!-- main-col end -->
 
       </div> <!-- End skills -->
@@ -233,291 +246,9 @@
 
          <div class="twelve columns collapsed">
 
-            <h1>Check Out Some of My Works.</h1>
-
-            <!-- portfolio-wrapper -->
-            <div id="portfolio-wrapper" class="bgrid-quarters s-bgrid-thirds cf">
-
-          	   <div class="columns portfolio-item">
-                  <div class="item-wrap">
-
-                     <a href="#modal-01" title="">
-                        <img alt="" src="{% static 'cv/images/portfolio/coffee.jpg'%}">
-                        <div class="overlay">
-                           <div class="portfolio-item-meta">
-          					      <h5>Coffee</h5>
-                              <p>Illustrration</p>
-          					   </div>
-                        </div>
-                        <div class="link-icon"><i class="icon-plus"></i></div>
-                     </a>
-
-                  </div>
-          		</div> <!-- item end -->
-
-               <div class="columns portfolio-item">
-                  <div class="item-wrap">
-
-                     <a href="#modal-02" title="">
-                        <img alt="" src="{% static 'cv/images/portfolio/console.jpg'%}">
-                        <div class="overlay">
-                           <div class="portfolio-item-meta">
-          					      <h5>Console</h5>
-                              <p>Web Development</p>
-          					   </div>
-                        </div>
-                        <div class="link-icon"><i class="icon-plus"></i></div>
-                     </a>
-
-                  </div>
-          		</div> <!-- item end -->
-
-               <div class="columns portfolio-item">
-                  <div class="item-wrap">
-
-                     <a href="#modal-03" title="">
-                        <img alt="" src="{% static 'cv/images/portfolio/judah.jpg'%}">
-                        <div class="overlay">
-                           <div class="portfolio-item-meta">
-          					      <h5>Judah</h5>
-                              <p>Webdesign</p>
-          					   </div>
-                        </div>
-                        <div class="link-icon"><i class="icon-plus"></i></div>
-                     </a>
-
-                  </div>
-          		</div> <!-- item end -->
-
-               <div class="columns portfolio-item">
-                  <div class="item-wrap">
-
-                     <a href="#modal-04" title="">
-                        <img alt="" src="{% static 'cv/images/portfolio/into-the-light.jpg'%}">
-                        <div class="overlay">
-                           <div class="portfolio-item-meta">
-          					      <h5>Into The Light</h5>
-                              <p>Photography</p>
-          					   </div>
-                        </div>
-                        <div class="link-icon"><i class="icon-plus"></i></div>
-                     </a>
-
-                  </div>
-          		</div> <!-- item end -->
-
-               <div class="columns portfolio-item">
-                  <div class="item-wrap">
-
-                     <a href="#modal-05" title="">
-                        <img alt="" src="images/portfolio/farmerboy.jpg">
-                        <div class="overlay">
-                           <div class="portfolio-item-meta">
-          					      <h5>Farmer Boy</h5>
-                              <p>Branding</p>
-          					   </div>
-                        </div>
-                        <div class="link-icon"><i class="icon-plus"></i></div>
-                     </a>
-
-                  </div>
-          		</div> <!-- item end -->
-
-               <div class="columns portfolio-item">
-                  <div class="item-wrap">
-
-                     <a href="#modal-06" title="">
-                        <img alt="" src="images/portfolio/girl.jpg">
-                        <div class="overlay">
-                           <div class="portfolio-item-meta">
-          					      <h5>Girl</h5>
-                              <p>Photography</p>
-          					   </div>
-                        </div>
-                        <div class="link-icon"><i class="icon-plus"></i></div>
-                     </a>
-
-                  </div>
-          		</div> <!-- item end -->
-
-               <div class="columns portfolio-item">
-                  <div class="item-wrap">
-
-                     <a href="#modal-07" title="">
-                        <img alt="" src="images/portfolio/origami.jpg">
-                        <div class="overlay">
-                           <div class="portfolio-item-meta">
-          					      <h5>Origami</h5>
-                              <p>Illustrration</p>
-          					   </div>
-                        </div>
-                        <div class="link-icon"><i class="icon-plus"></i></div>
-                     </a>
-
-                  </div>
-          		</div> <!-- item end -->
-
-               <div class="columns portfolio-item">
-                  <div class="item-wrap">
-
-                     <a href="#modal-08" title="">
-                        <img alt="" src="images/portfolio/retrocam.jpg">
-                        <div class="overlay">
-                           <div class="portfolio-item-meta">
-          					      <h5>Retrocam</h5>
-                              <p>Web Development</p>
-          					   </div>
-                        </div>
-                        <div class="link-icon"><i class="icon-plus"></i></div>
-                     </a>
-
-                  </div>
-          		</div>  <!-- item end -->
-
-            </div> <!-- portfolio-wrapper end -->
+            <h1>Check Out my works on <a href="https://gitlab.com/hp5588">Gitlab</a>.</h1>
 
          </div> <!-- twelve columns end -->
-
-
-         <!-- Modal Popup
-	      --------------------------------------------------------------- -->
-
-         <div id="modal-01" class="popup-modal mfp-hide">
-
-		      <img class="scale-with-grid" src="{% static 'cv/images/portfolio/modals/m-coffee.jpg'%}" alt="" />
-
-		      <div class="description-box">
-			      <h4>Coffee Cup</h4>
-			      <p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit.</p>
-               <span class="categories"><i class="fa fa-tag"></i>Branding, Webdesign</span>
-		      </div>
-
-            <div class="link-box">
-               <a href="http://www.behance.net" target="_blank">Details</a>
-		         <a class="popup-modal-dismiss">Close</a>
-            </div>
-
-	      </div><!-- modal-01 End -->
-
-         <div id="modal-02" class="popup-modal mfp-hide">
-
-		      <img class="scale-with-grid" src="images/portfolio/modals/m-console.jpg" alt="" />
-
-		      <div class="description-box">
-			      <h4>Console</h4>
-			      <p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit.</p>
-               <span class="categories"><i class="fa fa-tag"></i>Branding, Web Development</span>
-		      </div>
-
-            <div class="link-box">
-               <a href="http://www.behance.net" target="_blank">Details</a>
-		         <a class="popup-modal-dismiss">Close</a>
-            </div>
-
-	      </div><!-- modal-02 End -->
-
-         <div id="modal-03" class="popup-modal mfp-hide">
-
-		      <img class="scale-with-grid" src="images/portfolio/modals/m-judah.jpg" alt="" />
-
-		      <div class="description-box">
-			      <h4>Judah</h4>
-			      <p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit.</p>
-               <span class="categories"><i class="fa fa-tag"></i>Branding</span>
-		      </div>
-
-            <div class="link-box">
-               <a href="http://www.behance.net" target="_blank">Details</a>
-		         <a class="popup-modal-dismiss">Close</a>
-            </div>
-
-	      </div><!-- modal-03 End -->
-
-         <div id="modal-04" class="popup-modal mfp-hide">
-
-		      <img class="scale-with-grid" src="images/portfolio/modals/m-intothelight.jpg" alt="" />
-
-		      <div class="description-box">
-			      <h4>Into the Light</h4>
-			      <p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit.</p>
-               <span class="categories"><i class="fa fa-tag"></i>Photography</span>
-		      </div>
-
-            <div class="link-box">
-               <a href="http://www.behance.net" target="_blank">Details</a>
-		         <a class="popup-modal-dismiss">Close</a>
-            </div>
-
-	      </div><!-- modal-04 End -->
-
-         <div id="modal-05" class="popup-modal mfp-hide">
-
-		      <img class="scale-with-grid" src="images/portfolio/modals/m-farmerboy.jpg" alt="" />
-
-		      <div class="description-box">
-			      <h4>Farmer Boy</h4>
-			      <p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit.</p>
-               <span class="categories"><i class="fa fa-tag"></i>Branding, Webdesign</span>
-		      </div>
-
-            <div class="link-box">
-               <a href="http://www.behance.net" target="_blank">Details</a>
-		         <a class="popup-modal-dismiss">Close</a>
-            </div>
-
-	      </div><!-- modal-05 End -->
-
-         <div id="modal-06" class="popup-modal mfp-hide">
-
-		      <img class="scale-with-grid" src="images/portfolio/modals/m-girl.jpg" alt="" />
-
-		      <div class="description-box">
-			      <h4>Girl</h4>
-			      <p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit.</p>
-               <span class="categories"><i class="fa fa-tag"></i>Photography</span>
-		      </div>
-
-            <div class="link-box">
-               <a href="http://www.behance.net" target="_blank">Details</a>
-		         <a class="popup-modal-dismiss">Close</a>
-            </div>
-
-	      </div><!-- modal-06 End -->
-
-         <div id="modal-07" class="popup-modal mfp-hide">
-
-		      <img class="scale-with-grid" src="images/portfolio/modals/m-origami.jpg" alt="" />
-
-		      <div class="description-box">
-			      <h4>Origami</h4>
-			      <p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit.</p>
-               <span class="categories"><i class="fa fa-tag"></i>Branding, Illustration</span>
-		      </div>
-
-            <div class="link-box">
-               <a href="http://www.behance.net" target="_blank">Details</a>
-		         <a class="popup-modal-dismiss">Close</a>
-            </div>
-
-	      </div><!-- modal-07 End -->
-
-         <div id="modal-08" class="popup-modal mfp-hide">
-
-		      <img class="scale-with-grid" src="images/portfolio/modals/m-retrocam.jpg" alt="" />
-
-		      <div class="description-box">
-			      <h4>Retrocam</h4>
-			      <p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit.</p>
-               <span class="categories"><i class="fa fa-tag"></i>Webdesign, Photography</span>
-		      </div>
-
-            <div class="link-box">
-               <a href="http://www.behance.net" target="_blank">Details</a>
-		         <a class="popup-modal-dismiss">Close</a>
-            </div>
-
-	      </div><!-- modal-01 End -->
-
 
       </div> <!-- row End -->
 

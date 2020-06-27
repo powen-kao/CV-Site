@@ -22,7 +22,7 @@ def index(request):
     context = {
         'experience_list': experience_list,
         'education_list': education_list,
-        'skill_list': skill_list
+        'skill_list': skill_list,
     }
     return HttpResponse(template.render(context, request))
 

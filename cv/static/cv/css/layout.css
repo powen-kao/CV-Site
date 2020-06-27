@@ -286,8 +286,8 @@ ul#nav li.current a { color: #F06000; }
 /*----------------------------------------------*/
 .skills{
     display: table;
-
 }
+
 .floating-items li{
     display: table;
     /*background-color: #0F9095;*/
@@ -302,6 +302,26 @@ ul#nav li.current a { color: #F06000; }
     display: table-cell;
     vertical-align: middle;
     color: #FFFFFF;
+}
+.skill-category{
+   border-bottom-color: #E8E8E8;
+   /*border-bottom-style: solid;*/
+   border-bottom-width: 1px;
+   padding-bottom: 10px;
+   margin-bottom: 24px;
+}
+
+#skills h3{
+   font-size: 20px;
+}
+#skills h3 span{
+   padding-left: 10px;
+   border-left-color: #0F9095;
+   border-left-width: 2px;
+   border-left-style: solid;
+}
+#skills h4{
+   font-size: 18px;
 }
 /* ------------------------------------------------------------------ */
 /* e. Portfolio Section
