@@ -32,3 +32,8 @@ services:
 
 volumes:
   static_data:
+
+networks:
+  default:
+    external:
+      name: proxy_tier
