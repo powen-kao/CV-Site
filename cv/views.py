@@ -24,7 +24,9 @@ def index(request):
         'education_list': education_list,
         'skill_list': skill_list,
     }
-    return HttpResponse(template.render(context, request))
+    response = HttpResponse(template.render(context, request))
+    # response['Access-Control-Allow-Origin'] = "*"
+    return response
 
     # latest_exp_list = Experience.objects.order_by('-start_date')[:5]
     # output = ', '.join([q.title for q in latest_exp_list])
