@@ -2,6 +2,7 @@
 version: "2.4"
 services:
   cv:
+    restart: always
     image: hp5588/cv-kao:v1
     ports:
       - 8000:8000
@@ -12,12 +13,14 @@ services:
     environment:
       ENV_DEBUG: "False"
       ENV_STATIC_URL: "https://static.kao-pw.de/"
+      ENV_DB_KEY: '!ytas#p)aip)w=my*!dk*vug=&!6(7vfckjaa)xw_1^_m#&fk4'
       VIRTUAL_HOST: kao-pw.de
       VIRTUAL_PORT: 8000
       LETSENCRYPT_HOST: kao-pw.de
       LETSENCRYPT_EMAIL: hp5588@gmail.com
 
   apache:
+    restart: always
     image: 'bitnami/apache:latest'
     ports:
       - 8080:8080
