@@ -13,6 +13,7 @@ services:
     environment:
       ENV_DEBUG: "False"
       ENV_STATIC_URL: "https://static.kao-pw.de/"
+      ENV_DB_KEY: '!ytas#p)aip)w=my*!dk*vug=&!6(7vfckjaa)xw_1^_m#&fk4'
       VIRTUAL_HOST: kao-pw.de
       VIRTUAL_PORT: 8000
       LETSENCRYPT_HOST: kao-pw.de
