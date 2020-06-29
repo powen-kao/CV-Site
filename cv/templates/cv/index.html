@@ -33,6 +33,17 @@
 	================================================== -->
 	<link rel="shortcut icon" href="favicon.png" >
 
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-43724825-3"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-43724825-3');
+    </script>
+
+
 </head>
 
 <body>
@@ -90,10 +101,17 @@
             <h2>About Me</h2>
 
             <p> Enjoy exploring latest technology and trying out new potentials. Having solid experience in programming, I built up various hobby projects in IoT applications and apps on iOS/Android.
+<<<<<<< HEAD
                 It has always been a pleasure to program microcontroller in combine with other software that makes life easier.
                 At the point, I was fascinated with beauty of embedded system and further joined master program in Uni Freiburg in 2018.
                 Later in 2019, I found an internship opportunity in UI/UX Advanced Engineering department at Daimler that prototypes on latest UI concept.
                 Working closely with graphic designer, we bring the design to live. More recently, I am working on master thesis and getting ready for next big adventure.
+=======
+                It has always been a pleasure to program microcontroller in combination with other software that makes life easier.
+                At the point, I was fascinated by beauty of embedded system and further joined master program in Uni Freiburg in 2018.
+                Later in 2019, I found an internship opportunity in UI/UX Advanced Engineering department at Daimler that prototypes on latest UI concept.
+                Working closely with graphic designer, we bring the design to live. More recently, I am working on master thesis and getting ready for next adventure.
+>>>>>>> master
             </p>
 
             <div class="row">
@@ -150,12 +168,21 @@
                               <p class="info">{{ education.major }} <span>&bull;</span> <em class="date">{{ education.start_date|date:"M Y" }} - {{ education.end_date|date:"M Y" }}</em></p>
 
                            </div>
+<<<<<<< HEAD
 
                     </div> <!-- item end -->`
                  {% endfor %}
              {% endif %}
 
 
+=======
+
+                    </div> <!-- item end -->`
+                 {% endfor %}
+             {% endif %}
+
+
+>>>>>>> master
 
          </div> <!-- main-col end -->
 
@@ -202,7 +229,11 @@
 
          <div class="nine columns main-col">
 
+<<<<<<< HEAD
             <p>Familiar with programming language from low-level HDL to object oriented language such as C++, Python and Java.</p>
+=======
+            <p>Familiar with programming language from low-level C to object oriented language such as C++, Python and Java. Wide range of experience in different tools and frameworks.</p>
+>>>>>>> master
             {% regroup skill_list by get_category as category_list %}
             {% for category, skill_list in category_list %}
                 <h3><span> {{ category.name }}</span></h3>
@@ -229,8 +260,13 @@
                     {% endif %}
                 </table>
             {% endfor %}
+<<<<<<< HEAD
 
 
+=======
+
+
+>>>>>>> master
          </div> <!-- main-col end -->
 
       </div> <!-- End skills -->
@@ -284,7 +320,7 @@
    <!-- Java Script
    ================================================== -->
    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-   <script>window.jQuery || document.write('<script src="js/jquery-1.10.2.min.js"><\/script>')</script>
+   <script>window.jQuery || document.write('<script src="{% static 'cv/js/jquery-1.10.2.min.js' %}"><\/script>')</script>
    <script type="text/javascript" src="{% static 'cv/js/jquery-migrate-1.2.1.min.js' %}"></script>
 
    <script src="{% static 'cv/js/jquery.flexslider.js' %}"></script>
