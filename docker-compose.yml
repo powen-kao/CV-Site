@@ -1,0 +1,39 @@
+
+version: "2.4"
+services:
+  cv:
+    image: hp5588/cv-kao:v1
+    ports:
+      - 8000:8000
+    volumes:
+      - ./data:/cv-site/data/
+      - static_data:/static
+
+    environment:
+      ENV_DEBUG: "False"
+      ENV_STATIC_URL: "https://static.kao-pw.de/"
+      VIRTUAL_HOST: kao-pw.de
+      VIRTUAL_PORT: 8000
+      LETSENCRYPT_HOST: kao-pw.de
+      LETSENCRYPT_EMAIL: hp5588@gmail.com
+
+  apache:
+    image: 'bitnami/apache:latest'
+    ports:
+      - 8080:8080
+    volumes:
+      - static_data:/opt/bitnami/apache/htdocs
+      - ./CvVirtualHost.conf:/opt/bitnami/apache/conf/vhosts/CvVirtualHost.conf
+    environment:
+      VIRTUAL_HOST: static.kao-pw.de
+      VIRTUAL_PORT: 8080
+      LETSENCRYPT_HOST: static.kao-pw.de
+      LETSENCRYPT_EMAIL: hp5588@gmail.com
+
+volumes:
+  static_data:
+
+networks:
+  default:
+    external:
+      name: proxy_tier
