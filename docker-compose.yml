@@ -2,6 +2,7 @@
 version: "2.4"
 services:
   cv:
+    restart: always
     image: hp5588/cv-kao:v1
     ports:
       - 8000:8000
@@ -18,6 +19,7 @@ services:
       LETSENCRYPT_EMAIL: hp5588@gmail.com
 
   apache:
+    restart: always
     image: 'bitnami/apache:latest'
     ports:
       - 8080:8080
