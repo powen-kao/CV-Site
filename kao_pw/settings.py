@@ -24,7 +24,7 @@ SECRET_KEY = os.getenv("ENV_DB_KEY", "setupdbkeyhere")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv("ENV_DEBUG", "True") == "True"
 
-ALLOWED_HOSTS = ["127.0.0.1", "localhost", "*"]
+ALLOWED_HOSTS = ["*"]
 
 # Application definition
 
