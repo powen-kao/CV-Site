@@ -14,9 +14,9 @@ services:
       ENV_DEBUG: "False"
 #      ENV_STATIC_URL: "https://static.kao-pw.de/"
       ENV_DB_KEY: '!ytas#p)aip)w=my*!dk*vug=&!6(7vfckjaa)xw_1^_m#&fk4'
-      VIRTUAL_HOST: kao-pw.de
+      VIRTUAL_HOST: kao.po-wen.de
       VIRTUAL_PORT: 8000
-      LETSENCRYPT_HOST: kao-pw.de
+      LETSENCRYPT_HOST: kao.po-wen.de
       LETSENCRYPT_EMAIL: hp5588@gmail.com
 
   apache:
@@ -28,9 +28,9 @@ services:
       - static_data:/opt/bitnami/apache/htdocs
       - ./CvVirtualHost.conf:/opt/bitnami/apache/conf/vhosts/CvVirtualHost.conf
     environment:
-      VIRTUAL_HOST: static.kao-pw.de
+      VIRTUAL_HOST: static.po-wen.de
       VIRTUAL_PORT: 8080
-      LETSENCRYPT_HOST: static.kao-pw.de
+      LETSENCRYPT_HOST: static.po-wen.de
       LETSENCRYPT_EMAIL: hp5588@gmail.com
 
 volumes:
