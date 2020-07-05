@@ -1,6 +1,6 @@
 FROM python:3.7.7-slim-buster
 
-ENV ENV_STATIC_URL https://static.kao-pw.de/cv/static/
+ENV ENV_STATIC_URL https://static.po-wen.de/cv/static/
 EXPOSE 8000
 
 #  for testing

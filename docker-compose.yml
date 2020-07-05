@@ -12,7 +12,7 @@ services:
 
     environment:
       ENV_DEBUG: "False"
-      ENV_STATIC_URL: "https://static.kao-pw.de/"
+      ENV_STATIC_URL: "https://static.po-wen.de/"
       ENV_DB_KEY: '!ytas#p)aip)w=my*!dk*vug=&!6(7vfckjaa)xw_1^_m#&fk4'
       VIRTUAL_HOST: kao.po-wen.de
       VIRTUAL_PORT: 8000
