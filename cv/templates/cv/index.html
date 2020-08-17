@@ -18,7 +18,7 @@
    ================================================== -->
    <meta charset="utf-8">
 	<title>Po-Wen Kao - Embedded Engineer</title>
-	<meta name="description" content="Embedded Engineer, Embedded System, C++, C, Python, Java, Android, iOS, AR, Unity">
+	<meta name="description" content="Embedded Systems Engineer, Embedded System, C++, C, Python, Java, Android, iOS, AR, Unity">
 	<meta name="author" content="">
 
    <!-- Mobile Specific Metas
@@ -66,10 +66,8 @@
          <div class="banner-text">
             <h1 class="responsive-headline">I'm Po-Wen Kao</h1>
              <div class="row">
-                <h3> Software / Hardware Engineer</h3>
+                <h3> Embedded Systems Engineer </h3>
              </div>
-
-            <hr />
             <ul class="social">
                <li><a href="https://www.linkedin.com/in/powen-kao/" target="_blank"><i class="fa fa-linkedin"></i></a></li>
                <li><a href="https://gitlab.com/hp5588" target="_blank"><i class="fa fa-gitlab"></i></a></li>
@@ -79,6 +77,16 @@
 
    </header> <!-- Header End -->
 
+
+   <!-- Docker Section
+   ================================================== -->
+   <section id="docker">
+       <div class="row">
+           <div class="twelve columns">
+               <h3>Site deployed from my <a href="https://hub.docker.com/r/hp5588/cv-kao">Docker Hub</a> using free GCP VM</h3>
+           </div>
+       </div>
+   </section>
 
    <!-- About Section
    ================================================== -->
@@ -97,8 +105,8 @@
             <h2>About Me</h2>
 
             <p> Enjoy exploring latest technology and trying out new potentials. Having solid experience in programming, I built up various hobby projects in IoT applications and apps on iOS/Android.
-                It has always been a pleasure to program microcontroller in combination with other software that makes life easier.
-                At the point, I was fascinated by beauty of embedded system and further joined master program in Uni Freiburg in 2018.
+                It has always been a pleasure to program microcontroller with internet connectivity that makes life easier. Docker then became one of my favourite tools on backend deployment.
+                At this point, I was fascinated by beauty of embedded system and further joined master program in Uni Freiburg in 2018.
                 Later in 2019, I found an internship opportunity in UI/UX Advanced Engineering department at Daimler that prototypes on latest UI concept.
                 Working closely with graphic designer, we bring the design to live. More recently, I am working on master thesis and getting ready for next adventure.
             </p>
@@ -209,7 +217,7 @@
 
          <div class="nine columns main-col">
 
-            <p>Familiar with programming language from low-level C to object oriented language such as C++, Python and Java. Wide range of experience in different tools and frameworks.</p>
+            <p>Familiar with programming language from low-level C to object oriented language such as C++, Python and Java. Wide range of experience in various tools and frameworks.</p>
             {% regroup skill_list by get_category as category_list %}
             {% for category, skill_list in category_list %}
                 <h3><span> {{ category.name }}</span></h3>

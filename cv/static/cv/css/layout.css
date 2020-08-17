@@ -186,6 +186,16 @@ ul#nav li.current a { color: #F06000; }
 /* c. About Section
 /* ------------------------------------------------------------------ */
 
+#docker{
+   padding: 20px 0;
+   text-align: center;
+   vertical-align: center;
+   background-color: #2D2E34;
+}
+#docker h3{
+   color: #E8E8E8;
+}
+
 #about {
    background: #2B2B2B;
    padding-top: 96px;
