@@ -1,4 +1,5 @@
 FROM python:3.7.7-slim-buster
+LABEL maintainer="hp5588@gmail.com"
 
 ENV ENV_STATIC_URL https://static.po-wen.de/cv/static/
 EXPOSE 8000
