@@ -47,3 +47,12 @@ class Framework(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Portfolio(models.Model):
+    name = models.CharField(max_length=100)
+    image = models.ImageField(upload_to="portfolio/images")
+    description = models.TextField()
+    rank = models.IntegerField()
+    link = models.TextField(default="")
+

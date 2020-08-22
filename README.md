@@ -1,7 +1,7 @@
 # CV Site
 This site is built to update latest status of myself and for job searching. Feel free to fork project for your own use. The theme is derived from template on https://www.styleshout.com/ and modified accordingly to my need.
 
-Django framework is integrated to generate dynamic content in education and work section. Those content can be modified through Django admin site directly. 
+Django framework is integrated to generate dynamic content in education, work and portfolio section. Those content can be modified through Django admin site directly. 
 
 An apache server is hosted to serve static resources which is automatically collected on container creation.
 
@@ -31,6 +31,13 @@ https://hub.docker.com/r/hp5588/cv-kao
 - ENV_DEBUG: should be disabled in production site for security reason
 - ENV_STATIC_URL: where you host static file such as html and CSS
 - ENV_DB_KEY: password of you SQLite DB 
+
+
+## Debug Build
+1. build debug image ``sudo docker build . -t dev-cv-kao:latest``
+1. run debug image with docker-compose ``sudo docker-compose -f docker-compose-debug.yml up -d --force-recreate``\
+    Debug mode is enabled and `cv-site` folder inside container is mapped to to root folder of project
+
 
 
 

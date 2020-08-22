@@ -271,7 +271,7 @@ ul#nav li.current a { color: #F06000; }
 #resume .header-col { padding-top: 9px; }
 #resume .main-col { padding-right: 10%; }
 
-.education, .work {
+.education, .experience {
    margin-bottom: 48px;
    padding-bottom: 24px;
    border-bottom: 1px solid #E8E8E8;
@@ -338,17 +338,47 @@ ul#nav li.current a { color: #F06000; }
 /* ------------------------------------------------------------------ */
 
 #portfolio {
-   background: #ebeeee;
+   background: #1f2024;
    padding-top: 90px;
    padding-bottom: 60px;
 }
 #portfolio h1 {
+   font-size: 18pt;
+   line-height: 24pt;
+   color: #95A3A3;
+}
+
+#portfolio h2 {
+   font: 16pt/24pt 'opensans-semibold', sans-serif;
+   color: #6F6D6E;
+   margin-bottom: 15px;
+   padding-left: 20px;
+}
+
+#portfolio h3 {
    font: 15px/24px 'opensans-semibold', sans-serif;
    text-transform: uppercase;
    letter-spacing: 1px;
    text-align: center;
-   margin-bottom: 48px;
    color: #95A3A3;
+   margin: 0;
+}
+
+#portfolio a:hover{
+   color: #E8E8E8;
+}
+
+
+.row .portfolio-row {
+   padding: 15px 0;
+   margin-bottom: 15px;
+   background-color: #2F2D2E;
+}
+
+.portfolio-source-link{
+   font-size: 14pt;
+   text-align: center;
+   margin: 15px 0;
 }
 
 /* Portfolio Content */
