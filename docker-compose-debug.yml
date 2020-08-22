@@ -8,6 +8,7 @@ services:
       - 9000:8000
     volumes:
       - ./:/cv-site
+      - ./media:/media
 
     environment:
       ENV_DEBUG: "True"

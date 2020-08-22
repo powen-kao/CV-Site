@@ -350,7 +350,8 @@ ul#nav li.current a { color: #F06000; }
 
 #portfolio h2 {
    font: 16pt/24pt 'opensans-semibold', sans-serif;
-   color: #5F5D5E;
+   color: #6F6D6E;
+   margin-bottom: 10px;
 }
 
 #portfolio h3 {
@@ -362,17 +363,22 @@ ul#nav li.current a { color: #F06000; }
    margin: 0;
 }
 
-
-.row .portfolio-row {
-   padding: 10px 0;
-   margin-bottom: 15px;
-   background-color: #2F2D2E;
-   border-radius: 10px;
+#portfolio a:hover{
+   color: #E8E8E8;
 }
 
-/*#portfolio img{*/
-/*   width: 50%;*/
-/*}*/
+
+.row .portfolio-row {
+   padding: 15px 0;
+   margin-bottom: 15px;
+   background-color: #2F2D2E;
+}
+
+.portfolio-source-link{
+   font-size: 14pt;
+   text-align: center;
+   margin: 15px 0;
+}
 
 /* Portfolio Content */
 #portfolio-wrapper .columns { margin-bottom: 36px; }

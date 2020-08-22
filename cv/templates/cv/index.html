@@ -262,29 +262,23 @@
               <h1><span>Portfolio</span></h1>
           </div>
           <div class="nine columns main-col">
-              <div class="row portfolio-row">
-                  <div class="twelve columns">
-                      <h2> This is cool</h2>
-                      <div class="four columns header-col">
-                          <img src={% static "cv/images/portfolio/control_panel.png" %}>
+              {% for port in portfolio_list %}
+                  <div class="row portfolio-row">
+                      <div class="twelve columns">
+                          <a href="{{ port.link }}" style="display: block"></a>
+                          <h2> {{ port.name }}</h2>
+                          <div class="four columns header-col">
+                              <img src="{{ port.image.url }}">
+                          </div>
+                          <div class="eight columns main-col">
+                              <pre>{{port.description}}</pre>
+                          </div>
                       </div>
-                      <div class="eight columns main-col">
-                          <p>iiiii</p>
-                      </div>
-                  </div>
-              </div>
-              <div class="row portfolio-row">
-                  <div class="twelve columns">
-                      <h2> This is cool</h2>
-                      <div class="four columns header-col">
-                          <img src={% static "cv/images/portfolio/control_panel.png" %}>
-                      </div>
-                      <div class="eight columns main-col">
-                          <p>iiiii</p>
+                      <div class="twelve columns portfolio-source-link">
+                          <a href="{{ port.link }}" target="_blank" style="display: block">Source Code</a>
                       </div>
                   </div>
-              </div>
-
+              {% endfor %}
 
               <div class="row collapsed portfolio-row">
                   <h3>Check Out other works on my <a href="https://gitlab.com/hp5588">Gitlab</a>.</h3>
