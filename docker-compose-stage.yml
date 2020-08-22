@@ -1,0 +1,44 @@
+
+version: "2.4"
+services:
+  cv:
+    restart: always
+    image: dev-cv-kao:latest
+    ports:
+      - 8000:8000
+    volumes:
+      - ./data:/cv-site/data/
+      - ./media:/media
+      - static_data:/static
+
+    environment:
+      ENV_DEBUG: "False"
+      ENV_STATIC_URL: "https://dev-static.po-wen.de/"
+      ENV_DB_KEY: '!ytas#p)aip)w=my*!dk*vug=&!6(7vfckjaa)xw_1^_m#&fk4'
+      VIRTUAL_HOST: dev-kao.po-wen.de
+      VIRTUAL_PORT: 8000
+      LETSENCRYPT_HOST: dev-kao.po-wen.de
+      LETSENCRYPT_EMAIL: hp5588@gmail.com
+
+
+  apache:
+    restart: always
+    image: 'bitnami/apache:latest'
+    ports:
+      - 8080:8080
+    volumes:
+      - static_data:/opt/bitnami/apache/htdocs
+      - ./CvVirtualHost.conf:/opt/bitnami/apache/conf/vhosts/CvVirtualHost.conf
+    environment:
+      VIRTUAL_HOST: dev-static.po-wen.de
+      VIRTUAL_PORT: 8080
+      LETSENCRYPT_HOST: dev-static.po-wen.de
+      LETSENCRYPT_EMAIL: hp5588@gmail.com
+
+volumes:
+  static_data:
+
+networks:
+  default:
+    external:
+      name: proxy_tier
