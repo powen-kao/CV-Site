@@ -8,12 +8,13 @@ services:
       - 8000:8000
     volumes:
       - ./data:/cv-site/data/
-      - ./media:/media
+      - ./media:/media/
       - static_data:/static
 
     environment:
       ENV_DEBUG: "False"
       ENV_STATIC_URL: "https://static.po-wen.de/"
+      ENV_MEDIA_URL: "https://static.po-wen.de/media/"
       ENV_DB_KEY: '!ytas#p)aip)w=my*!dk*vug=&!6(7vfckjaa)xw_1^_m#&fk4'
       VIRTUAL_HOST: kao.po-wen.de
       VIRTUAL_PORT: 8000
@@ -28,6 +29,7 @@ services:
       - 8080:8080
     volumes:
       - static_data:/opt/bitnami/apache/htdocs
+      - ./media:/opt/bitnami/apache/htdocs/media
       - ./CvVirtualHost.conf:/opt/bitnami/apache/conf/vhosts/CvVirtualHost.conf
     environment:
       VIRTUAL_HOST: static.po-wen.de
