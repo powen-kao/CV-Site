@@ -33,6 +33,13 @@ https://hub.docker.com/r/hp5588/cv-kao
 - ENV_DB_KEY: password of you SQLite DB 
 
 
+## Debug Build
+1. build debug image ``sudo docker build . -t dev-cv-kao:latest``
+1. run debug image with docker-compose ``sudo docker-compose -f docker-compose-debug.yml up -d``\
+    Debug mode is enabled and `cv-site` folder inside container is mapped to to root folder of project
+
+
+
 
 
 ## Warning
