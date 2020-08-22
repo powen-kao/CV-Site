@@ -13,6 +13,7 @@ services:
     environment:
       ENV_DEBUG: "True"
       ENV_DB_KEY: '!ytas#p)aip)w=my*!dk*vug=&!6(7vfckjaa)xw_1^_m#&fk4'
+      ENV_LOCAL: "True"
       VIRTUAL_HOST: dev-kao.po-wen.de
       VIRTUAL_PORT: 9000
       LETSENCRYPT_HOST: dev-kao.po-wen.de
