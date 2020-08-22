@@ -256,6 +256,9 @@
    /* ----------------------------------------------------------------- */
    #portfolio-wrapper .columns { margin-bottom: 40px; }
    .popup-modal {	max-width: 85%; }
+   .row .portfolio-row{
+      border-radius: 0;
+   }
 
 
    /* Testimonials Section
