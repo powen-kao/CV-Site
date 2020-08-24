@@ -28,10 +28,10 @@ https://hub.docker.com/r/hp5588/cv-kao
 1. Run with docker compose ``docker-compose up -d``. 
 
 ### Environment Variables
-- ENV_DEBUG: should be disabled in production site for security reason
+- ENV_DEBUG: should be disabled in production site for security reason (True/False)
 - ENV_STATIC_URL: where you host static file such as html and CSS
 - ENV_DB_KEY: password of you SQLite DB 
-
+- ENV_LOCAL: whether use repository folder as MEDIA_ROOT (True/False)
 
 ## Debug Build
 1. build debug image ``sudo docker build . -t dev-cv-kao:latest``
