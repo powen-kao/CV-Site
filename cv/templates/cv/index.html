@@ -158,15 +158,11 @@
              {% if education_list %}
                  {% for education in education_list %}
                      <div class="row item">
-
                            <div class="twelve columns">
-
                               <h3>{{ education.university }}<span class="info"> - {{education.country}}</span></h3>
                               <p class="info">{{ education.major }} <span>&bull;</span> <em class="date">{{ education.start_date|date:"M Y" }} - {{ education.end_date|date:"M Y" }}</em></p>
-
                            </div>
-
-                    </div> <!-- item end -->`
+                    </div> <!-- item end -->
                  {% endfor %}
              {% endif %}
 
