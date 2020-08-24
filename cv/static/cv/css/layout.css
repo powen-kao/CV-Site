@@ -353,6 +353,7 @@ ul#nav li.current a { color: #F06000; }
    color: #6F6D6E;
    margin-bottom: 15px;
    padding-left: 20px;
+   text-transform: capitalize;
 }
 
 #portfolio h3 {
