@@ -4,8 +4,6 @@ services:
   cv:
     restart: always
     image: dev-cv-kao:latest
-    ports:
-      - 9000:8000
     volumes:
       - ./:/cv-site
       - ./media:/media
@@ -15,7 +13,7 @@ services:
       ENV_DB_KEY: '!ytas#p)aip)w=my*!dk*vug=&!6(7vfckjaa)xw_1^_m#&fk4'
       ENV_LOCAL: "True"
       VIRTUAL_HOST: dev-kao.po-wen.de
-      VIRTUAL_PORT: 9000
+      VIRTUAL_PORT: 8000
       LETSENCRYPT_HOST: dev-kao.po-wen.de
       LETSENCRYPT_EMAIL: hp5588@gmail.com
 
