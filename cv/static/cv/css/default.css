@@ -617,7 +617,7 @@ input[type="checkbox"] { display: inline; }
 
 .narrow .row { max-width: 980px; }
 
-.row .row { width: auto; max-width: none; margin: 0 -20px; }
+.row .row { width: auto; max-width: none; margin: 10px -20px; }
 
 /* row clearing */
 .row:before,
