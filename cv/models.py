@@ -56,3 +56,14 @@ class Portfolio(models.Model):
     rank = models.IntegerField()
     link = models.TextField(default="")
 
+    def __str__(self):
+        return self.name
+
+
+class Tag(models.Model):
+    portfolio = models.ForeignKey(Portfolio, on_delete=models.CASCADE)
+    framework = models.ForeignKey(Framework, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.portfolio.name
+

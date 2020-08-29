@@ -270,6 +270,17 @@
                               <pre>{{port.description|safe}}</pre>
                           </div>
                       </div>
+                        {% if port.tag_set.count > 0 %}
+                          <div class="twelve columns tag-container">
+                              <div class="tag tag-header"> <h4>Tags</h4></div>
+                              {% for tag in port.tag_set.all|dictsort:"framework.name" %}
+                                  <div class="tag">
+                                      <a>#{{ tag.framework }}</a>
+                                  </div>
+                              {% endfor %}
+                          </div>
+                        {% endif %}
+
                       <div class="twelve columns portfolio-source-link">
                           <a href="{{ port.link }}" target="_blank" style="display: block">Source Code</a>
                       </div>

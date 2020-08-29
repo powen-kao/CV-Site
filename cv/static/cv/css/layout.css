@@ -350,7 +350,7 @@ ul#nav li.current a { color: #F06000; }
 
 #portfolio h2 {
    font: 16pt/24pt 'opensans-semibold', sans-serif;
-   color: #6F6D6E;
+   color: #8A8A8A;
    margin-bottom: 15px;
    padding-left: 20px;
    text-transform: capitalize;
@@ -369,6 +369,34 @@ ul#nav li.current a { color: #F06000; }
    color: #E8E8E8;
 }
 
+#portfolio .tag{
+   text-align: center;
+   padding: 0 10px;
+   background-color: #3f3f3f;
+   border-radius: 5px;
+   margin: 10px;
+}
+
+#portfolio .tag-header{
+   text-align: center;
+   background-color: transparent;
+}
+#portfolio .tag h4{
+   font-size: 10pt;
+   color: #8A8A8A;
+   margin: 0;
+}
+
+#portfolio .tag a{
+   color: #8A8A8A;
+}
+
+#portfolio .tag-container{
+   display: flex;
+   flex-wrap: wrap;
+   padding: 0 40px;
+   margin: 10px 0;
+}
 
 .row .portfolio-row {
    padding: 15px 0;

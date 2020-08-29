@@ -58,6 +58,10 @@ time, mark, audio, video {
    background: transparent;
 }
 
+p, pre{
+    text-align: justify;
+}
+
 article,aside,details,figcaption,figure,
 footer,header,hgroup,menu,nav,section {
    display: block;
@@ -154,7 +158,7 @@ body {
    font-weight: normal;
    font-size: 15px;
    line-height: 30px;
-	color: #838C95;
+    color: #8A8A8A;
 
    -webkit-font-smoothing: antialiased; /* Fix for webkit rendering */
     -webkit-text-size-adjust: 100%;
