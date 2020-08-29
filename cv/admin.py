@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Experience, Education, Skill, SkillCategory, Framework, Portfolio
+from .models import Experience, Education, Skill, SkillCategory, Framework, Portfolio, Tag
 
 
 @admin.register(Experience)
@@ -31,3 +31,8 @@ class FrameworkAdmin(admin.ModelAdmin):
 @admin.register(Portfolio)
 class PortfolioAdmin(admin.ModelAdmin):
     list_display = ('name', 'image', 'description', 'link', 'rank')
+
+
+@admin.register(Tag)
+class TagAdmin(admin.ModelAdmin):
+    list_display = ('portfolio', 'framework')

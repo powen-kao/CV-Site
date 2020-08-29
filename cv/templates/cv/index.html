@@ -66,7 +66,7 @@
          <div class="banner-text">
             <h1 class="responsive-headline">I'm Po-Wen Kao</h1>
              <div class="row">
-                <h3> Embedded Systems Engineer </h3>
+                 <h3> Embedded Systems Engineer</h3>
              </div>
             <ul class="social">
                <li><a href="https://www.linkedin.com/in/powen-kao/" target="_blank"><i class="fa fa-linkedin"></i></a></li>
@@ -83,7 +83,7 @@
    <section id="docker">
        <div class="row">
            <div class="twelve columns">
-               <h3>Site deployed from my <a href="https://hub.docker.com/r/hp5588/cv-kao">Docker Hub</a> using free GCP VM</h3>
+               <h3 class="no-margin">Site deployed from my <a href="https://hub.docker.com/r/hp5588/cv-kao">Docker Hub</a> using free GCP VM</h3>
            </div>
        </div>
    </section>
@@ -104,11 +104,12 @@
 
             <h2>About Me</h2>
 
-            <p> Enjoy exploring latest technology and trying out new potentials. Having solid experience in programming, I built up various hobby projects in IoT applications and apps on iOS/Android.
-                It has always been a pleasure to program microcontroller with internet connectivity that makes life easier. Docker then became one of my favourite tools on backend deployment.
-                At this point, I was fascinated by beauty of embedded system and further joined master program in Uni Freiburg in 2018.
-                Later in 2019, I found an internship opportunity in UI/UX Advanced Engineering department at Daimler that prototypes on latest UI concept.
-                Working closely with graphic designer, we bring the design to live. More recently, I am working on master thesis and getting ready for next adventure.
+            <p> Enjoy exploring the latest technology and trying out new potentials. Having solid experience in programming, I built up various hobby projects in IoT applications and apps on iOS/Android.
+                It has always been a pleasure to program the microcontroller that has internet connectivity. Docker then became one of my favorite tools on backend deployment.
+                At this point, I was fascinated by the beauty of embedded systems and further joined the master program in Uni Freiburg in 2018.
+                Later in 2019, I found an internship opportunity in UI/UX Advanced Engineering department at Daimler that prototypes on the latest UI concept.
+                Working closely with graphic designers, we bring the design to live.
+                More recently, I am working on a master thesis and getting ready for the next adventure.
             </p>
 
             <div class="row">
@@ -270,6 +271,17 @@
                               <pre>{{port.description|safe}}</pre>
                           </div>
                       </div>
+                        {% if port.tag_set.count > 0 %}
+                          <div class="twelve columns tag-container">
+                              <div class="tag tag-header"> <h4>Tags</h4></div>
+                              {% for tag in port.tag_set.all|dictsort:"framework.name" %}
+                                  <div class="tag">
+                                      <a>#{{ tag.framework }}</a>
+                                  </div>
+                              {% endfor %}
+                          </div>
+                        {% endif %}
+
                       <div class="twelve columns portfolio-source-link">
                           <a href="{{ port.link }}" target="_blank" style="display: block">Source Code</a>
                       </div>
