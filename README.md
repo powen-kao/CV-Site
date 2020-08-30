@@ -34,9 +34,9 @@ Docker image is automatically built on git push on master branch
 https://hub.docker.com/r/hp5588/cv-kao
 
 ### Environment Variables
-- ENV_DEBUG: should be disabled in production site for security reason (True/False)
+- ENV_DEBUG: whether Django debug is enabled. Should be disabled in production site for security reason (True/False)
 - ENV_STATIC_URL: where you host static file such as html and CSS
-- ENV_DB_KEY: password of you SQLite DB 
+- ENV_DB_KEY: password of your SQLite DB 
 - ENV_LOCAL: whether use repository folder as MEDIA_ROOT (True/False)
 
 ## Customize
