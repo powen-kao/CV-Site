@@ -9,25 +9,26 @@ Production site [kao.po-wen.de](https://kao.po-wen.de/)
 
 Source on [Github](https://github.com/hp5588/CV-Site)
 
-
-## Prepare
+## Build
+### Prepare
 1. Install `docker`, `docker-compose` and `git`
 1. Run `git pull https://github.com/hp5588/CV-Site`
 1. Create proxy container and use let's encrypt for SSL connection \
- Refer to https://github.com/nginx-proxy/docker-letsencrypt-nginx-proxy-companion
+    Refer to https://github.com/nginx-proxy/docker-letsencrypt-nginx-proxy-companion
 1. Modify `docker-compose.yml`,  `docker-compose-debug.yml` and `docker-compose-stage.yml` according to your need.\
     e.g. `proxy_tier` network interface is created for Nginx proxy; change to your own **domain**
-    > docker-compose.yml is used on production server where docker-compose-stage.yml is meant to test in pre-release domain before final deployment
+    > `docker-compose.yml` is used on production server where `docker-compose-stage.yml` is meant to test image in pre-release domain before final deployment
 
-## Production Build
+### Production Build
 1. Build docker image `docker build . -t hp5588/cv-kao:latest` \
    Skip this step if pull from docker hub
 1. Run image with docker-compose `sudo docker-compose -f docker-compose.yml up -d --force-recreate`
   
-## Debug Build
+### Debug Build
 1. Build debug image `sudo docker build . -t dev-cv-kao:latest`
 1. Run debug image with docker-compose `sudo docker-compose -f docker-compose-debug.yml up -d --force-recreate`\
     Debug mode is enabled and `cv-site` folder inside container is mapped to to root folder of repository
+
 ### CI
 Docker image is automatically built on git push on master branch
 https://hub.docker.com/r/hp5588/cv-kao
@@ -41,8 +42,8 @@ https://hub.docker.com/r/hp5588/cv-kao
 ## Customize
 1. Visit `https://<your_domain.com>/admin` \
 You might need to setup new password on first login
-![Admin Site](images/admin_site.jpg)
-2. Modify data of model
+![Admin Site](https://github.com/hp5588/CV-Site/raw/master/images/admin_site.jpg)
+2. Modify model data
 3. Changes should be reflected at `https://<your_domain.com>` 
 
 ## Warning
