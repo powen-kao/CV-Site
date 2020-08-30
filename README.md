@@ -9,23 +9,28 @@ Production site [kao.po-wen.de](https://kao.po-wen.de/)
 
 Source on [Github](https://github.com/hp5588/CV-Site)
 
-## Build
-### Prepare
-1. Install ``docker`` and ``docker-compose``
-1. Build docker image ``docker build .`` \
-    Ignore this if pull from docker hub
 
+## Prepare
+1. Install `docker`, `docker-compose` and `git`
+1. Run `git pull https://github.com/hp5588/CV-Site`
+1. Create proxy container and use let's encrypt for SSL connection \
+ Refer to https://github.com/nginx-proxy/docker-letsencrypt-nginx-proxy-companion
+1. Modify `docker-compose.yml`,  `docker-compose-debug.yml` and `docker-compose-stage.yml` according to your need.\
+    e.g. `proxy_tier` network interface is created for Nginx proxy; change to your own **domain**
+    > docker-compose.yml is used on production server where docker-compose-stage.yml is meant to test in pre-release domain before final deployment
+
+## Production Build
+1. Build docker image `docker build . -t hp5588/cv-kao:latest` \
+   Skip this step if pull from docker hub
+1. Run image with docker-compose `sudo docker-compose -f docker-compose.yml up -d --force-recreate`
+  
+## Debug Build
+1. Build debug image `sudo docker build . -t dev-cv-kao:latest`
+1. Run debug image with docker-compose `sudo docker-compose -f docker-compose-debug.yml up -d --force-recreate`\
+    Debug mode is enabled and `cv-site` folder inside container is mapped to to root folder of repository
 ### CI
 Docker image is automatically built on git push on master branch
 https://hub.docker.com/r/hp5588/cv-kao
-
-## Deployment  
-### Steps
-1. Create proxy container and use let's encrypt for SSL connection \
- Refer to https://github.com/nginx-proxy/docker-letsencrypt-nginx-proxy-companion
-1. Modify ``docker-compose.yml`` file according to your need.\
-    e.g. ``proxy_tier`` network interface is created for Nginx proxy; change to your own domain
-1. Run with docker compose ``docker-compose up -d``. 
 
 ### Environment Variables
 - ENV_DEBUG: should be disabled in production site for security reason (True/False)
@@ -33,14 +38,12 @@ https://hub.docker.com/r/hp5588/cv-kao
 - ENV_DB_KEY: password of you SQLite DB 
 - ENV_LOCAL: whether use repository folder as MEDIA_ROOT (True/False)
 
-## Debug Build
-1. build debug image ``sudo docker build . -t dev-cv-kao:latest``
-1. run debug image with docker-compose ``sudo docker-compose -f docker-compose-debug.yml up -d --force-recreate``\
-    Debug mode is enabled and `cv-site` folder inside container is mapped to to root folder of project
-
-
-
-
+## Customize
+1. Visit `https://<your_domain.com>/admin` \
+You might need to setup new password on first login
+![Admin Site](images/admin_site.jpg)
+2. Modify data of model
+3. Changes should be reflected at `https://<your_domain.com>` 
 
 ## Warning
-Security warning: DB password in ``docker-compose.yml`` should be replaced with your own password. Here we only show an example of where to config password.
+- Security warning: DB password in `docker-compose.yml` should be replaced with your own password. Here we only show an example of where to config password.
