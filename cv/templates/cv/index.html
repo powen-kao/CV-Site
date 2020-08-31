@@ -226,7 +226,7 @@
                                     <h4>{{ skill.name }} </h4>
                                 </th>
                                 <th >
-                                    <a>{{ skill.framework_set.all|join:" | " }}</a>
+                                    <a>{{ skill.framework_set.all|dictsort:"name"|join:" | "  }}</a>
                                 </th>
                             </tr>
                        {% endfor %}
