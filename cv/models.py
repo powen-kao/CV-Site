@@ -44,8 +44,14 @@ class SkillCategory(models.Model):
 class Framework(models.Model):
     name = models.CharField(max_length=100)
     skill = models.ForeignKey('Skill', on_delete=models.DO_NOTHING, null=True)
+    show_skill = models.BooleanField(default=False, null=True)
 
     def __str__(self):
+        return self.name
+
+    def full_name(self):
+        if self.show_skill:
+            return "%s - %s" % (self.name, self.skill.name)
         return self.name
 
 
