@@ -25,7 +25,7 @@ class SkillCategoryAdmin(admin.ModelAdmin):
 
 @admin.register(Framework)
 class FrameworkAdmin(admin.ModelAdmin):
-    list_display = ('name', 'skill')
+    list_display = ('name', 'skill', 'show_skill')
 
 
 @admin.register(Portfolio)

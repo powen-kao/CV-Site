@@ -276,7 +276,7 @@
                               <div class="tag tag-header"> <h4>Tags</h4></div>
                               {% for tag in port.tag_set.all|dictsort:"framework.name" %}
                                   <div class="tag">
-                                      <a>#{{ tag.framework }}</a>
+                                      <a>#{{ tag.framework.full_name }}</a>
                                   </div>
                               {% endfor %}
                           </div>
