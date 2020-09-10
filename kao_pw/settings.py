@@ -22,7 +22,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.getenv("ENV_DB_KEY", "setupdbkeyhere")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv("ENV_DEBUG", "True") == "True"
+DEBUG = os.getenv("ENV_DEBUG", "False") == "True"
 
 ALLOWED_HOSTS = ["*"]
 
