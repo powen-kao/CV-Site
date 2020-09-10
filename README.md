@@ -1,5 +1,5 @@
 # CV Site
-This site is built to update latest status of myself and for job searching. Feel free to fork project for your own use. The theme is derived from template on https://www.styleshout.com/ and modified accordingly to my need.
+This site is built to update latest status of myself. Feel free to fork project for your own use. The theme is derived from free template on https://www.styleshout.com/.
 
 Django framework is integrated to generate dynamic content in education, work and portfolio section. Those content can be modified through Django admin site directly. 
 
@@ -47,4 +47,4 @@ You might need to setup new password on first login
 3. Changes should be reflected at `https://<your_domain.com>` 
 
 ## Warning
-- Security warning: DB password in `docker-compose.yml` should be replaced with your own password. Here we only show an example of where to config password.
+- Security warning: DB password in `docker-compose.yml` should be replaced with your own password. Here shows only an example where to config password.
