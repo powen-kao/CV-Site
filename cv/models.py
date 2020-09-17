@@ -17,6 +17,7 @@ class Education(models.Model):
     major = models.CharField(max_length=100)
     start_date = models.DateField('start date')
     end_date = models.DateField('end date')
+    description = models.TextField(default="")
 
 
 class Skill(models.Model):

@@ -163,6 +163,8 @@
                            <div class="twelve columns">
                               <h3>{{ education.university }}<span class="info"> - {{education.country}}</span></h3>
                               <p class="info">{{ education.major }} <span>&bull;</span> <em class="date">{{ education.start_date|date:"M Y" }} - {{ education.end_date|date:"M Y" }}</em></p>
+                               <pre>{{ education.description|safe }}
+                               </pre>
                            </div>
                     </div> <!-- item end -->
                  {% endfor %}
