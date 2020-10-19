@@ -17,8 +17,8 @@
    <!--- Basic Page Needs
    ================================================== -->
    <meta charset="utf-8">
-	<title>Po-Wen Kao - Embedded Engineer</title>
-	<meta name="description" content="Embedded Systems Engineer, Embedded System, C++, C, Python, Java, Android, iOS, AR, Unity">
+	<title>Po-Wen Kao - Software Engineering</title>
+	<meta name="description" content="Embedded Systems Engineer, Embedded System, Robotics, C++, C, Python, Java, Android, iOS, AR, Unity">
 	<meta name="author" content="">
 
    <!-- Mobile Specific Metas
@@ -66,11 +66,12 @@
          <div class="banner-text">
             <h1 class="responsive-headline">I'm Po-Wen Kao</h1>
              <div class="row">
-                 <h3> Embedded Systems Engineer</h3>
+                 <h3> Software Engineering · Robotics · IT</h3>
              </div>
             <ul class="social">
                <li><a href="https://www.linkedin.com/in/powen-kao/" target="_blank"><i class="fa fa-linkedin"></i></a></li>
                <li><a href="https://gitlab.com/hp5588" target="_blank"><i class="fa fa-gitlab"></i></a></li>
+               <li><a href="https://github.com/hp5588" target="_blank"><i class="fa fa-github"></i></a></li>
             </ul>
          </div>
       </div>
@@ -83,7 +84,7 @@
    <section id="docker">
        <div class="row">
            <div class="twelve columns">
-               <h3 class="no-margin">Site deployed from my <a href="https://hub.docker.com/r/hp5588/cv-kao" target="_blank">Docker Hub</a> using free GCP VM</h3>
+               <h3 class="no-margin">Site is deployed from my <a href="https://hub.docker.com/r/hp5588/cv-kao" target="_blank">Docker Hub</a> image using GCP VM</h3>
            </div>
        </div>
    </section>
@@ -194,7 +195,7 @@
                           <p class="info">{{ experience.position }} <span>&bull;</span>
                               <em class="date">{{ experience.start_date|date:"M Y" }} - {{ experience.end_date|date:"M Y" }}</em>
                           </p>
-                          <pre>{{experience.description}}
+                          <pre>{{experience.description|safe}}
                           </pre>
 
                        </div>
